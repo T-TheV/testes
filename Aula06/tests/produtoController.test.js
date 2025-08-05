@@ -1,6 +1,6 @@
-const Produto = require('../models/produtoModel');
-const ProdutoControler = require('../controllers/produtoController');
-const { sequelize } = require('../../../config/configDB');
+const Produto = require('../src/modules/produto/models/produtoModel');
+const ProdutoControler = require('../src/modules/produto/controllers/produtoController');
+const { sequelize } = require('../src/config/configDB');
 
 beforeAll(async () => {
     await sequelize.sync({ force: true })
