@@ -3,3 +3,6 @@ node_modules/
 *.log
 coverage/
 .nyc_output/
+src/database/livros.db
+src/database/livros.db-shm
+src/database/livros.db-wal

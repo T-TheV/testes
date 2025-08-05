@@ -1,0 +1,666 @@
+type: collection.insomnia.rest/5.0
+name: Livros API
+meta:
+  id: wrk_046d4596213d47a89c3102121a6f20bd
+  created: 1752691297980
+  modified: 1752691297980
+  description: "API para gerenciamento de livros - CRUD completo"
+collection:
+  - name: Livros - CRUD
+    meta:
+      id: fld_6b973083a57149d185acc65b9afba0d3
+      created: 1752691325187
+      modified: 1752691325187
+      sortKey: -1752691325187
+      description: "Operações básicas de CRUD para livros"
+    children:
+      - url: http://localhost:3000/livros
+        name: Criar Livro - Sucesso
+        meta:
+          id: req_6c0ad94f435f49b4bed4d64698f56220
+          created: 1752691401148
+          modified: 1752691616491
+          isPrivate: false
+          description: "Cria um novo livro com dados válidos"
+          sortKey: -1752691461727
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "O Senhor dos Anéis",
+              "autor": "J.R.R. Tolkien",
+              "ano_publicacao": 1954,
+              "genero": "Fantasia",
+              "preco": 59.90
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: Listar Todos os Livros
+        meta:
+          id: req_1585a8f08ead4124ad9a45579a969576
+          created: 1752691473745
+          modified: 1752691490443
+          isPrivate: false
+          description: "Lista todos os livros cadastrados"
+          sortKey: -1752691461627
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros/buscar?titulo=Senhor
+        name: Buscar por Título
+        meta:
+          id: req_6d9eab3175294c4ab0b2810044b88800
+          created: 1752691517923
+          modified: 1752691557610
+          isPrivate: false
+          description: "Busca livros por título"
+          sortKey: -1752691461827
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros/1
+        name: Buscar por ID
+        meta:
+          id: req_a0ed061f56754171baff13781bedb9fb
+          created: 1752691582746
+          modified: 1752693185180
+          isPrivate: false
+          description: "Busca livro específico por ID"
+          sortKey: -1752691461527
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros/1
+        name: Atualizar Livro
+        meta:
+          id: req_f9ac463ff19d4b4abfc9ce19fb1f7eed
+          created: 1752692819214
+          modified: 1752693142757
+          isPrivate: false
+          description: "Atualiza dados de um livro existente"
+          sortKey: -1752692819214
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "O Hobbit",
+              "autor": "J.R.R. Tolkien",
+              "ano_publicacao": 1937,
+              "genero": "Fantasia",
+              "preco": 39.90
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros/1
+        name: Deletar Livro
+        meta:
+          id: req_3433a21d0ef844c097b015575d2a7284
+          created: 1752692908896
+          modified: 1752693138069
+          isPrivate: false
+          description: "Remove um livro do sistema"
+          sortKey: -1752692908896
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Validações - Casos de Erro
+    meta:
+      id: fld_25cce79da4f24f8ab5db34fb8a70bfea
+      created: 1752691330480
+      modified: 1752691330480
+      sortKey: -1752691330480
+      description: "Testes de validação e casos de erro"
+    children:
+      - url: http://localhost:3000/livros
+        name: Erro - Campos Vazios
+        meta:
+          id: req_43afdfc00eaa4487b90b6a50eac6303d
+          created: 1752692392238
+          modified: 1752693192459
+          isPrivate: false
+          description: "Teste com todos os campos vazios"
+          sortKey: -1752692392238
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "",
+              "autor": "",
+              "ano_publicacao": "",
+              "genero": "",
+              "preco": ""
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: Erro - Ano Inválido
+        meta:
+          id: req_4acd398ab21a4b589e3a7ffcc666a0d1
+          created: 1752692456519
+          modified: 1752692654773
+          isPrivate: false
+          description: "Teste com ano de publicação inválido"
+          sortKey: -1752692585069
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Teste",
+              "autor": "Autor Teste",
+              "ano_publicacao": "ano",
+              "genero": "Drama",
+              "preco": 29.90
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: Erro - Preço Negativo
+        meta:
+          id: req_95c64cd5ec4645ad99659a193a9ead27
+          created: 1752692584969
+          modified: 1752692635504
+          isPrivate: false
+          description: "Teste com preço negativo"
+          sortKey: -1752692584969
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Preço Negativo",
+              "autor": "Autor",
+              "ano_publicacao": 2020,
+              "genero": "Drama",
+              "preco": -10
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: Erro - Título Muito Curto
+        meta:
+          id: req_26cf4d624a424f10b014593f3f127312
+          created: 1752692673231
+          modified: 1752692758136
+          isPrivate: false
+          description: "Teste com título de apenas 1 caractere"
+          sortKey: -1752692585019
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "A",
+              "autor": "Autor",
+              "ano_publicacao": 2020,
+              "genero": "Drama",
+              "preco": 10
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: Erro - Gênero Inválido
+        meta:
+          id: req_14db86b8b6f14cba8ad1caa384cb6ae9
+          created: 1752692785462
+          modified: 1752693233164
+          isPrivate: false
+          description: "Teste com gênero não permitido"
+          sortKey: -1752692785462
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Gênero Inválido",
+              "autor": "Autor",
+              "ano_publicacao": 2020,
+              "genero": "Desconhecido",
+              "preco": 10
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: Erro - Preço Não Numérico
+        meta:
+          id: req_f63fca3589474ae68ff4b265cf180513
+          created: 1752692278001
+          modified: 1752692442779
+          isPrivate: false
+          description: "Teste com preço em formato inválido"
+          sortKey: -1752691904431
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Preço String",
+              "autor": "Autor",
+              "ano_publicacao": 2020,
+              "genero": "Drama",
+              "preco": "caro"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Segurança - SQL Injection
+    meta:
+      id: fld_fe30e84c3944464a9ad85e5ed782c9d9
+      created: 1752691337569
+      modified: 1752691337569
+      sortKey: -1752691337569
+      description: "Testes de segurança contra SQL Injection"
+    children:
+      - url: http://localhost:3000/livros
+        name: SQL Injection - Título
+        meta:
+          id: req_a439e895eda44b2e90abe0272ee09b70
+          created: 1752691823791
+          modified: 1752691904805
+          isPrivate: false
+          description: "Teste de SQL injection no campo título"
+          sortKey: -1752691904781
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Robert'); DROP TABLE livros;--",
+              "autor": "Autor",
+              "ano_publicacao": 2020,
+              "genero": "Drama",
+              "preco": 10
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: SQL Injection - Autor
+        meta:
+          id: req_05d6de0583cd4a0a8e4749207f79997d
+          created: 1752691893450
+          modified: 1752691929811
+          isPrivate: false
+          description: "Teste de SQL injection no campo autor"
+          sortKey: -1752691904681
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Normal",
+              "autor": "'); DELETE FROM livros WHERE 1=1;--",
+              "ano_publicacao": 2020,
+              "genero": "Drama",
+              "preco": 10
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: SQL Injection - Gênero
+        meta:
+          id: req_7be11743773d46259408249e1cfc4e99
+          created: 1752691949174
+          modified: 1752693202637
+          isPrivate: false
+          description: "Teste de SQL injection no campo gênero"
+          sortKey: -1752691904581
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Normal",
+              "autor": "Autor",
+              "ano_publicacao": 2020,
+              "genero": "Drama'); DROP TABLE livros;--",
+              "preco": 10
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: SQL Injection - Ano
+        meta:
+          id: req_1abfcd2f1a174adcbdc4fec116f89d46
+          created: 1752692138095
+          modified: 1752692193779
+          isPrivate: false
+          description: "Teste de SQL injection no campo ano"
+          sortKey: -1752691904481
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Normal",
+              "autor": "Autor",
+              "ano_publicacao": "2020; DROP TABLE livros;",
+              "genero": "Drama",
+              "preco": 10
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros
+        name: SQL Injection - Preço
+        meta:
+          id: req_2a353211d84c4fe2a9d40dcf330823cf
+          created: 1752692204798
+          modified: 1752693244814
+          isPrivate: false
+          description: "Teste de SQL injection no campo preço"
+          sortKey: -1752691904381
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Livro Normal",
+              "autor": "Autor",
+              "ano_publicacao": 2020,
+              "genero": "Drama",
+              "preco": "10; DROP TABLE livros;"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Casos Especiais
+    meta:
+      id: fld_special_cases_livros_api
+      created: 1752691337569
+      modified: 1752691337569
+      sortKey: -1752691337569
+      description: "Testes para casos especiais e edge cases"
+    children:
+      - url: http://localhost:3000/livros/buscar?titulo=Inexistente
+        name: Busca - Livro Não Encontrado
+        meta:
+          id: req_search_not_found
+          created: 1752691823791
+          modified: 1752691904805
+          isPrivate: false
+          description: "Busca por livro que não existe"
+          sortKey: -1752691904781
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros/9999
+        name: ID Inexistente - GET
+        meta:
+          id: req_get_not_found
+          created: 1752691893450
+          modified: 1752691929811
+          isPrivate: false
+          description: "Busca por ID que não existe"
+          sortKey: -1752691904681
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros/9999
+        name: ID Inexistente - PUT
+        meta:
+          id: req_put_not_found
+          created: 1752691949174
+          modified: 1752693202637
+          isPrivate: false
+          description: "Tentativa de atualizar livro inexistente"
+          sortKey: -1752691904581
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "titulo": "Teste",
+              "autor": "Autor",
+              "ano_publicacao": 2000,
+              "genero": "Drama",
+              "preco": 20.0
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/livros/9999
+        name: ID Inexistente - DELETE
+        meta:
+          id: req_delete_not_found
+          created: 1752692138095
+          modified: 1752692193779
+          isPrivate: false
+          description: "Tentativa de deletar livro inexistente"
+          sortKey: -1752691904481
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_38355f8b321b37074eb2ac55ed1c373f4863ba06
+    created: 1752691297986
+    modified: 1752693156477
+  cookies: []
+environments:
+  name: Base Environment
+  meta:
+    id: env_38355f8b321b37074eb2ac55ed1c373f4863ba06
+    created: 1752691297984
+    modified: 1752691297984
+    isPrivate: false
+  data:
+    base_url: http://localhost:3000
+    api_version: v1
